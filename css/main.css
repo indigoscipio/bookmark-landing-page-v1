@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
+.heading {
+  color: #252b46;
+  font-weight: 500;
+  line-height: 1.2; }
+
+.heading-1 {
+  font-size: 3.2rem; }
+
+.heading-2 {
+  font-size: 2.4rem; }
+
+.heading-3 {
+  font-size: 2rem; }
+
+p {
+  color: #9194a1; }
+
+.flex {
+  display: flex; }
+
+.flow {
+  gap: var(--gap, 1.6rem); }
+
+.container {
+  padding-left: 2.4rem;
+  padding-right: 2.4rem; }
+  .container.container-py {
+    padding-top: 9.6rem;
+    padding-bottom: 9.6rem; }
+
+.button {
+  padding: 1.2rem 2rem;
+  border: 0;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer; }
+  .button--blue {
+    background-color: #5368df;
+    color: white; }
+  .button--light {
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 12, 146, 0.124);
+    color: #252b46; }
+  .button--red {
+    color: white;
+    background-color: #fa5757; }
+    .button--red a {
+      color: white; }
+
+.header .container {
+  padding-top: 4.8rem;
+  padding-bottom: 4.8rem;
+  justify-content: space-between;
+  align-items: center; }
+
+.header__logo {
+  z-index: 6;
+  cursor: pointer; }
+  .header__logo.active {
+    content: url(../images/logo-bookmark-white.svg); }
+
+.header__overlay {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #252b46;
+  opacity: 0;
+  visibility: hidden; }
+  .header__overlay.active {
+    opacity: 1;
+    visibility: visible; }
+
+.header__links {
+  z-index: 6;
+  position: absolute;
+  top: 12rem;
+  width: calc(100% - 4.8rem);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  visibility: hidden;
+  opacity: 0; }
+  .header__links.active {
+    visibility: visible;
+    opacity: 1; }
+  .header__links li {
+    padding: 1.6rem 0;
+    border-bottom: 1px solid #9194a1;
+    letter-spacing: 0.2rem; }
+  .header__links li:first-child {
+    border-top: 1px solid #9194a1; }
+  .header__links li:last-child {
+    padding: 0.8rem 0;
+    margin-top: 2.4rem;
+    font-size: 2rem; }
+  .header__links .button {
+    border: 2px solid white;
+    background-color: transparent; }
+  .header__links a {
+    color: white; }
+
+.header__hamburger {
+  z-index: 6;
+  cursor: pointer;
+  display: inline-block; }
+  .header__hamburger.active span {
+    background-color: white; }
+  .header__hamburger span {
+    background-color: #252b46;
+    height: 3px;
+    width: 24px;
+    display: block; }
+    .header__hamburger span:not(:last-child) {
+      margin-bottom: 3px; }
+
+.hero .container {
+  text-align: center;
+  flex-direction: column;
+  gap: 2.4rem; }
+
+.hero__text {
+  display: flex;
+  gap: 2.4rem;
+  flex-direction: column; }
+  .hero__text .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem; }
+
+.features .container {
+  text-align: center;
+  flex-direction: column;
+  gap: 4.8rem; }
+
+.features__tabs {
+  display: flex;
+  flex-direction: column; }
+  .features__tabs .tab {
+    display: none; }
+  .features__tabs .tab:checked + .label {
+    font-weight: 500; }
+    .features__tabs .tab:checked + .label::after {
+      opacity: 1; }
+  .features__tabs .label {
+    cursor: pointer;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid #9194a1;
+    position: relative; }
+    .features__tabs .label:first-of-type {
+      border-top: 1px solid #9194a1; }
+    .features__tabs .label::after {
+      content: "";
+      position: absolute;
+      width: 14rem;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 4px;
+      display: block;
+      background-color: #fa5757;
+      opacity: 0; }
+
+.features__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem; }
+  .features__content .content-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem; }
+  .features__content .button {
+    display: none; }
+
+.download .container {
+  text-align: center;
+  flex-direction: column;
+  gap: 2.4rem; }
+
+.download__cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem; }
+  .download__cards .card {
+    border-radius: 1.6rem;
+    gap: 4.8rem;
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(14, 14, 89, 0.101);
+    position: relative;
+    max-width: 28rem; }
+  .download__cards .version {
+    font-size: 1.4rem;
+    margin-top: 0.8rem; }
+  .download__cards .line {
+    background-image: linear-gradient(to right, rgba(14, 17, 36, 0.16) 20%, rgba(15, 18, 44, 0) 0%);
+    background-position: center;
+    background-size: 16px 4px;
+    background-repeat: repeat-x;
+    top: 240px;
+    height: 8px;
+    width: 100%;
+    position: absolute; }
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0; }
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+  padding: 0; }
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth; }
+
+html {
+  font-size: 62.5%; }
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  font-size: 1.6rem;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  color: #252b46;
+  font-family: "Rubik", sans-serif; }
+  body.locked {
+    overflow: hidden; }
+  @media screen and (min-width: 48em) {
+    body {
+      font-size: 1.8rem; } }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block; }
+
+a {
+  text-decoration: none;
+  color: #252b46; }
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }

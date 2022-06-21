@@ -1,0 +1,282 @@
+//Utilities & Components
+.flex {
+  display: flex;
+}
+
+.flow {
+  gap: var(--gap, 1.6rem);
+}
+
+.container {
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+
+  &.container-py {
+    padding-top: 9.6rem;
+    padding-bottom: 9.6rem;
+  }
+}
+
+.button {
+  padding: 1.2rem 2rem;
+  border: 0;
+  border-radius: 0.8rem;
+  font-size: $fs-14;
+  font-weight: 500;
+  cursor: pointer;
+
+  &--blue {
+    background-color: $c-p-blue;
+    color: white;
+  }
+  &--light {
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 12, 146, 0.124);
+    color: $c-g-200;
+  }
+
+  &--red {
+    color: white;
+    background-color: $c-p-red;
+
+    a {
+      color: white;
+    }
+  }
+}
+
+//Header
+.header {
+  .container {
+    padding-top: 4.8rem;
+    padding-bottom: 4.8rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    z-index: 6;
+    cursor: pointer;
+
+    &.active {
+      content: url(../images/logo-bookmark-white.svg);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $c-g-200;
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__links {
+    z-index: 6;
+    position: absolute;
+    top: 12rem;
+    width: calc(100% - 4.8rem);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: $fs-20;
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    li {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid $c-g-100;
+      letter-spacing: 0.2rem;
+    }
+    li:first-child {
+      border-top: 1px solid $c-g-100;
+    }
+
+    li:last-child {
+      padding: 0.8rem 0;
+      margin-top: 2.4rem;
+      font-size: $fs-20;
+    }
+
+    .button {
+      border: 2px solid white;
+      background-color: transparent;
+    }
+
+    a {
+      color: white;
+    }
+  }
+
+  &__hamburger {
+    z-index: 6;
+    cursor: pointer;
+    display: inline-block;
+
+    &.active span {
+      background-color: white;
+    }
+
+    span {
+      background-color: $c-g-200;
+      height: 3px;
+      width: 24px;
+      display: block;
+
+      &:not(:last-child) {
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+//Hero
+.hero {
+  .container {
+    text-align: center;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  &__image {
+  }
+
+  &__text {
+    display: flex;
+    gap: 2.4rem;
+    flex-direction: column;
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 1.6rem;
+    }
+  }
+}
+
+//Features
+.features {
+  .container {
+    text-align: center;
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  &__intro {
+  }
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+
+    .tab {
+      display: none;
+    }
+
+    .tab:checked + .label {
+      font-weight: 500;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    .label {
+      cursor: pointer;
+      padding: 1.6rem 0;
+      border-bottom: 1px solid $c-g-100;
+      position: relative;
+
+      &:first-of-type {
+        border-top: 1px solid $c-g-100;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 14rem;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 4px;
+        display: block;
+        background-color: $c-p-red;
+        opacity: 0;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    .content-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .button {
+      display: none;
+    }
+  }
+}
+
+//Download
+.download {
+  .container {
+    text-align: center;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  &__intro {
+  }
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+
+    .card {
+      border-radius: 1.6rem;
+      gap: 4.8rem;
+      padding: 2.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: white;
+      box-shadow: 0px 8px 16px rgba(14, 14, 89, 0.101);
+      position: relative;
+      max-width: 28rem;
+    }
+
+    .version {
+      font-size: $fs-14;
+      margin-top: 0.8rem;
+    }
+    .line {
+      background-image: linear-gradient(
+        to right,
+        rgba(14, 17, 36, 0.16) 20%,
+        rgba(15, 18, 44, 0) 0%
+      );
+      background-position: center;
+      background-size: 16px 4px;
+      background-repeat: repeat-x;
+      top: 240px;
+      height: 8px;
+      width: 100%;
+      position: absolute;
+    }
+  }
+}
