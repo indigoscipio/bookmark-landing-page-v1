@@ -44,6 +44,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.6;
   color: $c-g-200;
+  overflow-x: hidden;
   font-family: "Rubik", sans-serif;
 
   &.locked {

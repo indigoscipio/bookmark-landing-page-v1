@@ -17,3 +17,9 @@
 p {
   color: $c-g-100;
 }
+
+.uppercase {
+  text-transform: uppercase;
+  font-size: $fs-14;
+  letter-spacing: 0.4rem;
+}

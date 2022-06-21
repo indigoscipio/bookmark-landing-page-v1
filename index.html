@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
+    <!-- Header Section -->
     <header class="header">
       <div class="container flex">
         <div class="header__overlay"></div>
@@ -37,6 +38,7 @@
       </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
       <div class="container flex container-py">
         <div class="hero__image">
@@ -57,6 +59,7 @@
       </div>
     </section>
 
+    <!-- Features Section -->
     <section class="features">
       <div class="container flex container-py">
         <div class="features__intro">
@@ -68,17 +71,33 @@
           </p>
         </div>
         <div class="features__tabs">
-          <input class="tab" id="tab-1" type="radio" name="tabs" />
-          <label class="label" for="tab-1">Simple Bookmarking</label>
-          <input class="tab" id="tab-2" type="radio" name="tabs" />
-          <label class="label" for="tab-2">Speedy Searching</label>
-          <input class="tab" id="tab-3" type="radio" name="tabs" />
-          <label class="label" for="tab-3">Easy Sharing</label>
-          <!-- <li>Simple Bookmarking</li>
-          <li>Speedy Searching</li>
-          <li>Easy Sharing</li> -->
+          <input
+            checked
+            class="tab"
+            id="tab-1"
+            type="radio"
+            name="tabs"
+            data-index="0"
+          />
+          <label class="tab-label label" for="tab-1">Simple Bookmarking</label>
+          <input
+            class="tab"
+            id="tab-2"
+            type="radio"
+            name="tabs"
+            data-index="1"
+          />
+          <label class="tab-label label" for="tab-2">Speedy Searching</label>
+          <input
+            class="tab"
+            id="tab-3"
+            type="radio"
+            name="tabs"
+            data-index="2"
+          />
+          <label class="tab-label label" for="tab-3">Easy Sharing</label>
         </div>
-        <div class="features__content">
+        <div class="features__content" data-index="0">
           <div class="content-image">
             <img src="images/illustration-features-tab-1.svg" alt="" />
           </div>
@@ -92,9 +111,36 @@
             <div class="button button--blue">More Info</div>
           </div>
         </div>
+        <div class="features__content" data-index="1">
+          <div class="content-image">
+            <img src="images/illustration-features-tab-2.svg" alt="" />
+          </div>
+          <div class="content-text">
+            <p class="heading heading-2">Intelligent search</p>
+            <p>
+              Our powerful search feature will help you find saved sites in no
+              time at all. No need to trawl through all of your bookmarks.
+            </p>
+            <div class="button button--blue">More Info</div>
+          </div>
+        </div>
+        <div class="features__content" data-index="2">
+          <div class="content-image">
+            <img src="images/illustration-features-tab-3.svg" alt="" />
+          </div>
+          <div class="content-text">
+            <p class="heading heading-2">Share your bookmarks</p>
+            <p>
+              Easily share your bookmarks and collections with others. Create a
+              shareable link that you can send at the click of a button.
+            </p>
+            <div class="button button--blue">More Info</div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Download Section -->
     <section class="download">
       <div class="container container-py flex">
         <div class="download__intro">
@@ -141,8 +187,9 @@
       </div>
     </section>
 
+    <!-- FAQ Section -->
     <section class="faq">
-      <div class="container flex">
+      <div class="container flex container-py">
         <div class="faq__intro">
           <p class="heading heading-2">Frequently Asked Questions</p>
           <p>
@@ -202,6 +249,42 @@
         <div class="button button--blue">More Info</div>
       </div>
     </section>
+
+    <!-- CTA Section -->
+    <div class="cta">
+      <div class="container flex container-py">
+        <p class="uppercase">35,000+ already joined</p>
+        <p class="heading heading-2">Stay up-to-date with what we’re doing</p>
+        <form id="form-email" action="" class="cta__form">
+          <img class="icon-error" src="images/icon-error.svg" alt="" />
+          <input
+            id="input-email"
+            type="email"
+            placeholder="Type your email address..."
+          />
+          <button type="submit" id="button-submit" class="button button--red">
+            Contact Us
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container flex container-py">
+        <div class="footer__logo">
+          <img src="images/logo-bookmark-white.svg" alt="" />
+        </div>
+        <ul class="footer__links">
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="footer__socials">
+          <img src="images/icon-facebook.svg" alt="" />
+          <img src="images/icon-twitter.svg" alt="" />
+        </div>
+      </div>
+    </footer>
     <!-- Features
   Intelligent search
 
@@ -212,17 +295,8 @@
 
   Share your bookmarks
 
-  Easily share your bookmarks and collections with others. Create a shareable 
-  link that you can send at the click of a button.
-
-  More Info
 
 
-
-  What about other Chromium browsers?
-
-
-  More Info
 
   35,000+ already joined
 

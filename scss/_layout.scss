@@ -10,10 +10,17 @@
 .container {
   padding-left: 2.4rem;
   padding-right: 2.4rem;
+  max-width: 111rem;
+  margin: 0 auto;
 
   &.container-py {
-    padding-top: 9.6rem;
-    padding-bottom: 9.6rem;
+    padding-top: 4.8rem;
+    padding-bottom: 4.8rem;
+
+    @include lg {
+      padding-top: 9.6rem;
+      padding-bottom: 9.6rem;
+    }
   }
 }
 
@@ -28,16 +35,37 @@
   &--blue {
     background-color: $c-p-blue;
     color: white;
+
+    &:hover {
+      background-color: white;
+      color: $c-p-blue;
+      outline: 2px solid $c-p-blue;
+      box-shadow: 0px 8px 16px rgba(1, 44, 214, 0.176);
+    }
   }
   &--light {
     background-color: white;
     box-shadow: 0px 8px 16px rgba(0, 12, 146, 0.124);
     color: $c-g-200;
+
+    &:hover {
+      background-color: white;
+      color: $c-g-200;
+      outline: 2px solid $c-g-200;
+      box-shadow: 0px 8px 16px rgba(1, 44, 214, 0.176);
+    }
   }
 
   &--red {
     color: white;
     background-color: $c-p-red;
+
+    &:hover {
+      background-color: white;
+      color: $c-p-red;
+      outline: 2px solid $c-p-red;
+      box-shadow: 0px 8px 16px rgba(186, 0, 0, 0.137);
+    }
 
     a {
       color: white;
@@ -72,6 +100,7 @@
     bottom: 0;
     background-color: $c-g-200;
     opacity: 0;
+    transition: all 0.2s ease;
     visibility: hidden;
 
     &.active {
@@ -90,8 +119,26 @@
     font-size: $fs-20;
     visibility: hidden;
     opacity: 0;
+    transition: all 0.2s ease;
+    transform: translateY(-16px);
+
+    @include lg {
+      display: flex;
+      align-items: center;
+      position: relative;
+      visibility: visible;
+      opacity: 1;
+      text-align: left;
+      font-size: $fs-14;
+      width: auto;
+      top: 0;
+      left: 0;
+      transform: none;
+      gap: 4rem;
+    }
 
     &.active {
+      transform: translateY(0);
       visibility: visible;
       opacity: 1;
     }
@@ -100,24 +147,59 @@
       padding: 1.6rem 0;
       border-bottom: 1px solid $c-g-100;
       letter-spacing: 0.2rem;
+
+      @include lg {
+        a:hover {
+          color: $c-p-red;
+        }
+        font-weight: 500;
+        border-bottom: none;
+        letter-spacing: normal;
+      }
     }
     li:first-child {
       border-top: 1px solid $c-g-100;
-    }
 
-    li:last-child {
-      padding: 0.8rem 0;
-      margin-top: 2.4rem;
-      font-size: $fs-20;
+      @include lg {
+        border-top: none;
+      }
     }
 
     .button {
+      padding: 0.8rem 0;
+      margin-top: 2.4rem;
+      font-size: $fs-20;
       border: 2px solid white;
       background-color: transparent;
+
+      a {
+        color: white;
+      }
+
+      @include lg {
+        &:hover {
+          background-color: white;
+
+          a {
+            color: $c-p-red;
+          }
+        }
+
+        font-size: $fs-14;
+        margin-top: 0;
+        padding: 0.8rem 3.2rem;
+        border: 0;
+        background-color: $c-p-red;
+        color: white;
+      }
     }
 
     a {
       color: white;
+
+      @include lg {
+        color: $c-g-200;
+      }
     }
   }
 
@@ -126,15 +208,35 @@
     cursor: pointer;
     display: inline-block;
 
-    &.active span {
-      background-color: white;
+    @include lg {
+      display: none;
+    }
+
+    &.active {
+      span {
+        background-color: white;
+      }
+
+      .line-1 {
+        transform: rotate(45deg);
+      }
+
+      .line-2 {
+        transform: scale(0);
+      }
+
+      .line-3 {
+        transform: rotate(-45deg);
+      }
     }
 
     span {
       background-color: $c-g-200;
-      height: 3px;
+      height: 4px;
       width: 24px;
       display: block;
+      transform-origin: 2px 2px;
+      transition: all 0.3s ease;
 
       &:not(:last-child) {
         margin-bottom: 3px;
@@ -145,12 +247,64 @@
 
 //Hero
 .hero {
+  overflow-x: hidden;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 110px;
+    right: -144px;
+    border-radius: 1000px;
+    width: 400px;
+    height: 160px;
+    background-color: $c-p-blue;
+
+    @include md {
+      width: 720px;
+      height: 370px;
+      top: 120px;
+      right: -204px;
+    }
+
+    @include lg {
+      top: 230px;
+    }
+  }
+
   .container {
+    align-items: center;
     text-align: center;
     flex-direction: column;
     gap: 2.4rem;
+
+    @include lg {
+      flex-direction: row;
+    }
   }
+
   &__image {
+    position: relative;
+
+    @include lg {
+      flex: 1;
+      order: 2;
+
+      img {
+        max-width: 120%;
+      }
+    }
+
+    // &::before {
+    //   z-index: -1;
+    //   content: "";
+    //   top: 56px;
+    //   border-radius: 1000px;
+    //   width: 100%;
+    //   height: 180px;
+    //   background-color: $c-p-blue;
+    //   position: absolute;
+    // }
   }
 
   &__text {
@@ -158,26 +312,84 @@
     gap: 2.4rem;
     flex-direction: column;
 
+    @include lg {
+      text-align: left;
+      flex: 1;
+      order: 1;
+    }
+
     .button-container {
       display: flex;
       justify-content: center;
       gap: 1.6rem;
+
+      @include lg {
+        justify-content: flex-start;
+      }
     }
   }
 }
 
 //Features
 .features {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 520px;
+    z-index: -1;
+    left: -140px;
+    border-radius: 1000px;
+    width: 400px;
+    height: 160px;
+    background-color: $c-p-blue;
+
+    @include md {
+      content: "";
+      position: absolute;
+      top: 530px;
+      z-index: -1;
+      left: -160px;
+      border-radius: 1000px;
+      width: 510px;
+      height: 270px;
+    }
+
+    @include lg {
+      content: "";
+      position: absolute;
+      top: 470px;
+      z-index: -1;
+      left: -170px;
+      border-radius: 1000px;
+      width: 750px;
+      height: 340px;
+    }
+  }
+
   .container {
     text-align: center;
     flex-direction: column;
     gap: 4.8rem;
   }
   &__intro {
+    @include lg {
+      width: 60rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
   }
   &__tabs {
     display: flex;
     flex-direction: column;
+
+    @include lg {
+      flex-direction: row;
+      justify-content: center;
+    }
 
     .tab {
       display: none;
@@ -197,8 +409,20 @@
       border-bottom: 1px solid $c-g-100;
       position: relative;
 
+      &:hover {
+        color: $c-p-red;
+      }
+
+      @include lg {
+        width: 28rem;
+      }
+
       &:first-of-type {
         border-top: 1px solid $c-g-100;
+
+        @include lg {
+          border-top: none;
+        }
       }
 
       &::after {
@@ -212,22 +436,62 @@
         display: block;
         background-color: $c-p-red;
         opacity: 0;
+
+        @include lg {
+          width: 100%;
+        }
       }
     }
   }
+
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 4.8rem;
+    align-items: center;
+
+    @include lg {
+      flex-direction: row;
+      gap: 12.8rem;
+
+      .content-image,
+      .content-text {
+        flex: 1;
+      }
+    }
+
+    &[data-index="2"],
+    &[data-index="1"] {
+      display: none;
+    }
 
     .content-text {
       display: flex;
       flex-direction: column;
       gap: 1.6rem;
+
+      @include lg {
+        text-align: left;
+      }
+    }
+
+    .content-image {
+      img {
+        @include lg {
+          position: relative;
+          left: -32px;
+          max-width: 200%;
+        }
+      }
     }
 
     .button {
       display: none;
+
+      @include lg {
+        align-self: flex-start;
+        display: block;
+      }
     }
   }
 }
@@ -237,9 +501,15 @@
   .container {
     text-align: center;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 3.2rem;
+    @include lg {
+      gap: 6.4rem;
+    }
   }
   &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
   }
   &__cards {
     display: flex;
@@ -247,17 +517,32 @@
     align-items: center;
     gap: 3.2rem;
 
+    @include lg {
+      flex-direction: row;
+      justify-content: center;
+    }
+
     .card {
       border-radius: 1.6rem;
       gap: 4.8rem;
       padding: 2.4rem;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
       background-color: white;
       box-shadow: 0px 8px 16px rgba(14, 14, 89, 0.101);
       position: relative;
       max-width: 28rem;
+
+      @include lg {
+        &:nth-child(2) {
+          margin-top: 3.2rem;
+        }
+        &:last-child {
+          margin-top: 6.4rem;
+        }
+      }
     }
 
     .version {
@@ -287,9 +572,17 @@
     text-align: center;
     gap: 3.2rem;
     flex-direction: column;
+
+    @include lg {
+      max-width: 60rem;
+    }
   }
 
   &__intro {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.6rem;
   }
   &__content {
     .accordion-container {
@@ -347,9 +640,116 @@
         color: $c-g-100;
       }
     }
-    .button {
-      margin-top: 2.4rem;
-      align-self: center;
+  }
+  .button {
+    align-self: center;
+  }
+}
+
+//CTA
+.cta {
+  background-color: $c-p-blue;
+
+  .container {
+    flex-direction: column;
+    gap: 2.4rem;
+    text-align: center;
+    max-width: 60rem;
+    color: white;
+  }
+  p {
+    color: white;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    position: relative;
+
+    @include lg {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .icon-error {
+      position: absolute;
+      right: 16px;
+      top: 14px;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+
+      @include lg {
+        right: 196px;
+      }
+    }
+
+    input[type="email"] {
+      border: 0;
+      padding: 1.4rem;
+      border-radius: 0.8rem;
+      font-size: $fs-14;
+
+      &.invalid {
+        outline: 2px solid $c-p-red;
+      }
+
+      @include lg {
+        width: 32rem;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: $c-g-200;
+  .container {
+    text-align: center;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @include lg {
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__logo {
+    margin: 0 auto;
+
+    @include lg {
+      margin: 0;
+      margin-right: 7.2rem;
+    }
+  }
+  &__links {
+    @include lg {
+      display: flex;
+      gap: 6.4rem;
+      margin-right: auto;
+    }
+
+    li {
+      text-transform: uppercase;
+      line-height: 3.2;
+      letter-spacing: 0.1rem;
+    }
+
+    a {
+      color: $c-g-100;
+    }
+  }
+  &__socials {
+    justify-content: center;
+    gap: 4rem;
+    display: flex;
+
+    @include lg {
+      align-items: center;
+      gap: 2.4rem;
     }
   }
 }
