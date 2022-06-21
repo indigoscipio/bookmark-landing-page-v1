@@ -280,3 +280,76 @@
     }
   }
 }
+
+//FAQ
+.faq {
+  .container {
+    text-align: center;
+    gap: 3.2rem;
+    flex-direction: column;
+  }
+
+  &__intro {
+  }
+  &__content {
+    .accordion-container {
+      text-align: left;
+    }
+
+    .accordion {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      input[type="checkbox"] {
+        display: none;
+      }
+      input[type="checkbox"]:checked ~ .content {
+        max-height: 100%;
+        padding: 2.4rem 0;
+      }
+
+      input[type="checkbox"]:checked ~ label::after {
+        background-image: url(../images/icon-arrow-red.svg);
+        transform: translateY(-50%) rotate(180deg);
+      }
+
+      &:first-child .label {
+        border-top: 0;
+      }
+
+      .label {
+        cursor: pointer;
+        font-weight: 500;
+        position: relative;
+        padding: 1.6rem 0;
+        border-top: 1px solid $c-g-100;
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          background-image: url(../images/icon-arrow.svg);
+          width: 16px;
+          height: 16px;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 100%;
+          transition: all 0.2s ease;
+        }
+      }
+      .content {
+        transition: all 0.2s ease-in;
+        max-height: 0;
+        color: $c-g-100;
+      }
+    }
+    .button {
+      margin-top: 2.4rem;
+      align-self: center;
+    }
+  }
+}

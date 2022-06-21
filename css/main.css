@@ -210,6 +210,57 @@ p {
     width: 100%;
     position: absolute; }
 
+.faq .container {
+  text-align: center;
+  gap: 3.2rem;
+  flex-direction: column; }
+
+.faq__content .accordion-container {
+  text-align: left; }
+
+.faq__content .accordion {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; }
+  .faq__content .accordion input[type="checkbox"] {
+    display: none; }
+  .faq__content .accordion input[type="checkbox"]:checked ~ .content {
+    max-height: 100%;
+    padding: 2.4rem 0; }
+  .faq__content .accordion input[type="checkbox"]:checked ~ label::after {
+    background-image: url(../images/icon-arrow-red.svg);
+    transform: translateY(-50%) rotate(180deg); }
+  .faq__content .accordion:first-child .label {
+    border-top: 0; }
+  .faq__content .accordion .label {
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    padding: 1.6rem 0;
+    border-top: 1px solid #9194a1; }
+    .faq__content .accordion .label::after {
+      content: "";
+      position: absolute;
+      display: block;
+      background-image: url(../images/icon-arrow.svg);
+      width: 16px;
+      height: 16px;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      transition: all 0.2s ease; }
+  .faq__content .accordion .content {
+    transition: all 0.2s ease-in;
+    max-height: 0;
+    color: #9194a1; }
+
+.faq__content .button {
+  margin-top: 2.4rem;
+  align-self: center; }
+
 /* Box sizing rules */
 *,
 *::before,
@@ -247,7 +298,7 @@ body {
   min-height: 100vh;
   font-size: 1.6rem;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #252b46;
   font-family: "Rubik", sans-serif; }
   body.locked {
